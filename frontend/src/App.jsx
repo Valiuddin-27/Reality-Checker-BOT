@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Add the exact file extensions here:
-import Auth from "./pages/auth.jsx";
+import Auth from "./pages/Auth.jsx";
 import DashboardLayout from './layouts/DashboardLayout.jsx';
-import Chat from "./pages/chat.jsx";
+import Chat from "./pages/Chat.jsx";
 
 function App() {
   return (
