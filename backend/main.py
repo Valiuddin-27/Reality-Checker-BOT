@@ -1,13 +1,19 @@
-# backend/main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.api import auth, chat  # <-- Add 'chat' here
+from app.api import auth, chat
+
+# --- 1. ADD THESE TWO IMPORTS ---
+from app.database.connection import engine
+from app.models import Base # (If your model is saved somewhere else, update this path)
+
+# --- 2. ADD THIS LINE TO BUILD THE TABLES ---
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Human API", version="1.0.0")
 
 origins = [
     "http://localhost:5173", # Your local laptop
-    "https://reality-checker-bot-dg8u.vercel.app" # <-- ADD THIS LINE!
+    "https://reality-checker-bot-dg8u.vercel.app" # Your live Vercel link!
 ]
 
 app.add_middleware(
