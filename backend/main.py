@@ -6,14 +6,15 @@ from app.api import auth, chat  # <-- Add 'chat' here
 app = FastAPI(title="Human API", version="1.0.0")
 
 origins = [
-    "http://localhost:5173", 
+    "http://localhost:5173", # Your local laptop
+    "https://reality-checker-bot-dg8u.vercel.app" # <-- ADD THIS LINE!
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"], 
+    allow_methods=["*"],
     allow_headers=["*"],
 )
 
