@@ -1,8 +1,8 @@
-// frontend/src/App.jsx
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Auth from './pages/Auth';
-import DashboardLayout from './layouts/DashboardLayout';
-import Chat from './pages/Chat'; // <-- 1. Import the new Chat component
+// Add the exact file extensions here:
+import Auth from './pages/Auth.jsx';
+import DashboardLayout from './layouts/DashboardLayout.jsx';
+import Chat from './pages/Chat.jsx'; 
 
 function App() {
   return (
@@ -11,7 +11,6 @@ function App() {
         <Route path="/" element={<Auth />} />
         
         <Route path="/dashboard" element={<DashboardLayout />}>
-          {/* 2. Swap out WelcomeView for the real Chat component */}
           <Route index element={<Chat />} />
         </Route>
       </Routes>
