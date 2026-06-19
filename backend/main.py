@@ -2,11 +2,10 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api import auth, chat
 
-# --- 1. ADD THESE TWO IMPORTS ---
-from app.database.connection import engine
-from app.models import Base # (If your model is saved somewhere else, update this path)
+# --- FIX: Import both engine and Base from your connection file ---
+from app.database.connection import engine, Base
 
-# --- 2. ADD THIS LINE TO BUILD THE TABLES ---
+# This line stays exactly the same:
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Human API", version="1.0.0")
